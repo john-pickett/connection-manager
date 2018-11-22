@@ -4,8 +4,9 @@ import Home from './views/Home.vue'
 import ContactTable from './components/ContactTable.vue';
 import AddContact from './components/AddContact.vue';
 import EditContact from './components/EditContact.vue';
+import ViewContact from './components/ViewContact.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
@@ -38,6 +39,11 @@ export default new Router({
         path: '/new',
         name: 'add',
         component: AddContact
+    },
+    {
+        path: "/view/:id",
+        name: 'view',
+        component: ViewContact
     }
   ]
 })
