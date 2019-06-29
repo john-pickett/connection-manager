@@ -7,6 +7,7 @@
                     <v-layout row wrap>
                         <v-flex xs12 class="pa-1">
                             <p class="text-xs-left contact-name">{{currentContact.firstName}} {{currentContact.lastName}}</p>
+                            <v-btn @click="editContact()" color="warning">Edit Contact</v-btn>
                         </v-flex>
                     </v-layout>
                     <v-layout>
@@ -49,7 +50,7 @@
                     </v-layout>
                     <v-layout row wrap>
                         <v-flex xs12 class="pa-1">
-                            <p class="text-xs-left"><span class="category">Status: </span>{{currentContact.customerStatus}}</p>
+                            <!-- <p class="text-xs-left"><span class="category">Status: </span>{{currentContact.customerStatus}}</p> -->
                             <p class="text-xs-left"><span class="category">Purchase History: </span>{{currentContact.purchaseHistory}}</p>
                         </v-flex>
                     </v-layout>
@@ -88,6 +89,12 @@ export default {
     data: () => ({
         
     }),
+    methods: {
+        editContact() {
+            const id = this.$route.params.id;
+            this.$router.push({ path: `/edit/${id}` });
+        }
+    },
     computed: {
         allContacts () {
             return this.$store.state.contacts;

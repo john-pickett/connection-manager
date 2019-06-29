@@ -10,14 +10,15 @@ export default new Vuex.Store({
     state: {
         contacts: [],
         currentContact: '',
-        newContact: {}
+        newContact: {},
+        contactToUpdate: {}
     },
     mutations: {
         CREATE_NEW_CONTACT(state, contact) {
             state.newContact = contact
         },
         CLEAR_ALL_CONTACTS(state) {
-            console.log('clearing all contacts')
+            // console.log('clearing all contacts')
             state.contacts = {}
         },
         ADD_NEW_CONTACT (state) {
@@ -26,8 +27,10 @@ export default new Vuex.Store({
     },
     actions: {
         LOAD_CONTACT_DATA() {
+            // console.log('loading contacts...')
             axios.get(process.env.VUE_APP_API_URL + '/contacts').then((res) => {
                 // console.log(JSON.stringify(res.data))
+                this.state.contacts = [];
                 this.state.contacts = res.data.contacts
             })
         },
@@ -37,6 +40,15 @@ export default new Vuex.Store({
                 this.state.newContact = res.data
                 commit('ADD_NEW_CONTACT')
                 
+            })
+        },
+        UPDATE_CONTACT({dispatch}, contact) {
+            const id = contact._id;
+            console.log('updating from store ' + id);
+            // commit('EDIT_CONTACT', contact);
+            axios.put(process.env.VUE_APP_API_URL + '/contact/' + id, contact).then(() => {
+                // console.log(res.data);
+                dispatch('LOAD_CONTACT_DATA')
             })
         }
     }

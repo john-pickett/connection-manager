@@ -31,7 +31,7 @@ export default new Router({
         component: ContactTable
     },
     {
-        path: '/edit',
+        path: '/edit/:id',
         name: 'edit',
         component: EditContact
     },
