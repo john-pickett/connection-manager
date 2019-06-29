@@ -12,7 +12,7 @@
                     <v-layout>
                         <v-flex xs12 class="pa-1">
                             <p class="text-xs-left"><span class="category">Email:</span> {{currentContact.email}}</p>
-                            <p class="text-xs-left"><span class="category">Phone: </span>{{currentContact.phone}}</p>
+                            <p class="text-xs-left"><span class="category">Phone:</span>{{currentContact.phone}}</p>
                         </v-flex>
                     </v-layout>
                     <v-layout row wrap>

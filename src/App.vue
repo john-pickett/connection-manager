@@ -9,6 +9,7 @@
 
     <v-content>
         <div class="nav-links">
+            <router-link to="/">Dashboard</router-link> |
             <router-link to="/contacts">Table</router-link> |
             <router-link to="/new">Add</router-link> | 
             <router-link to="/edit">Edit</router-link>
@@ -16,6 +17,9 @@
         <v-container>
             <router-view />
         </v-container>  
+        <v-footer height="50px" color="">
+                
+        </v-footer>
     </v-content>
   </v-app>
 </template>

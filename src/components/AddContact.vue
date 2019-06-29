@@ -23,7 +23,7 @@
                             <v-text-field label="Email" v-model="contact.email"></v-text-field>
                         </v-flex>
                         <v-flex xs12 sm6 md6 class="pa-1">
-                            <v-text-field label="Phone" v-model="contact.phone"></v-text-field>
+                            <v-text-field label="Phone" v-model="contact.phone" mask="phone"></v-text-field>
                         </v-flex>
                     </v-layout>
                     <v-layout row>
@@ -45,7 +45,7 @@
                             <v-text-field label="State" v-model="contact.state"></v-text-field>
                         </v-flex>
                         <v-flex xs12 sm6 md3 class="pa-1">
-                            <v-text-field label="Zip" v-model="contact.zip"></v-text-field>
+                            <v-text-field label="Zip" v-model="contact.zip" mask="#####"></v-text-field>
                         </v-flex>
                     </v-layout>
                     <v-layout row>
@@ -81,15 +81,18 @@
                     <v-layout row wrap>
                         <v-flex xs12 sm6 md6 class="pa-1">
                             <v-text-field label="Birthday" placeholder="MM/DD/YYYY" 
-                                v-model="contact.birthday"></v-text-field>
+                                v-model="contact.birthday" mask="##/##/####"></v-text-field>
                         </v-flex>
                         <v-flex xs12 sm6 md6 class="pa-1">
                             <v-text-field label="Spouse Birthday" placeholder="MM/DD/YYYY" 
-                                v-model="contact.spouseBirthday"></v-text-field>
+                                v-model="contact.spouseBirthday" mask="##/##/####"></v-text-field>
                         </v-flex>
                     </v-layout>
+                    <v-layout row>
+                        <h4>How We Met</h4>
+                    </v-layout>
                     <v-layout row wrap>
-                        <v-flex xs12 sm6 md6 class="pa-1">
+                        <v-flex xs12 class="pa-1">
                             <v-textarea label="How We Met" v-model="contact.howWeMet"></v-textarea>
                         </v-flex>
                     </v-layout>

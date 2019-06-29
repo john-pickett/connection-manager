@@ -5,11 +5,11 @@
         :rows-per-page-items="rowsPerPageItems" :pagination.sync="pagination">
             <template slot="items" slot-scope="props">
                 <tr @click="selectID($event, props.item)">
-                    <td class="text-xs-right">{{ props.item.firstName }}</td>
-                    <td class="text-xs-right">{{ props.item.lastName }}</td>
-                    <td class="text-xs-right">{{ props.item.email }}</td>
-                    <td class="text-xs-right">{{ props.item.phone }}</td>
-                    <td class="text-xs-right">{{ props.item.customerStatus }}</td>
+                    <td class="text-xs-center">{{ props.item.firstName }}</td>
+                    <td class="text-xs-center">{{ props.item.lastName }}</td>
+                    <td class="text-xs-center">{{ props.item.email }}</td>
+                    <td class="text-xs-center">{{ props.item.phone }}</td>
+                    <td class="text-xs-center">{{ props.item.customerStatus }}</td>
                 </tr>
             </template>
         </v-data-table>
@@ -22,11 +22,11 @@
 export default {
     data: () => ({
         headers: [
-            { text: "First", value: "firstName"},
-            { text: "Last", value: "lastName"},
-            { text: "Email", value: "email"},
-            { text: "Phone", value: "phone"},
-            { text: "Status", value: "customerStatus"}
+            { text: "First", value: "firstName", align: 'center'},
+            { text: "Last", value: "lastName", align: 'center'},
+            { text: "Email", value: "email", align: 'center'},
+            { text: "Phone", value: "phone", align: 'center'},
+            { text: "Status", value: "customerStatus", align: 'center'}
             ],
         rowsPerPageItems: [25, 50, 100],
         pagination: {

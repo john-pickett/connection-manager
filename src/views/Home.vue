@@ -1,13 +1,14 @@
 <template>
-  <HelloWorld />
+    <Dashboard></Dashboard>
 </template>
 
+
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import Dashboard from '../components/Dashboard.vue';
 
   export default {
     components: {
-      HelloWorld
+      Dashboard
     }
   }
 </script>

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build:stage": "vue-cli-service build --mode stage",
+    "deploy:stage": "vue-cli-service build --mode stage && firebase deploy --project mary-crm-stage",
+    "deploy:prod": "vue-cli-service build && firebase deploy --project mary-connection-manager",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
