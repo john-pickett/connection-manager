@@ -123,6 +123,7 @@
 </template>
 
 <script>
+import { setTimeout } from 'timers';
 export default {
     data: () => ({
         snackbar: false
@@ -136,6 +137,9 @@ export default {
             this.$store.dispatch('UPDATE_CONTACT', this.contact).then(() => {
                 this.snackbar = true;
                 this.$store.dispatch('LOAD_CONTACT_DATA');
+                setTimeout(() => {
+                    this.$router.back();
+                }, 1200);
             })
         },
         cancel() {
