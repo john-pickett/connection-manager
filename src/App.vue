@@ -11,11 +11,11 @@
         <div class="nav-links">
             <router-link to="/">Dashboard</router-link> |
             <router-link to="/list">List</router-link> |
+            <router-link to="/list2">List 2</router-link> |
             <router-link to="/contacts">Table</router-link> |
-            <router-link to="/new">Add</router-link> | 
-            <router-link to="/edit">Edit</router-link>
+            <router-link to="/new">Add</router-link>
         </div>
-        <v-container>
+        <v-container fluid>
             <router-view />
         </v-container>  
         <v-footer height="50px" color="">

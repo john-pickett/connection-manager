@@ -6,6 +6,7 @@ import AddContact from './components/AddContact.vue';
 import EditContact from './components/EditContact.vue';
 import ViewContact from './components/ViewContact.vue';
 import ContactList from './components/ContactList.vue';
+import ContactList2 from './components/ContactList2.vue';
 
 Vue.use(Router);
 
@@ -50,6 +51,16 @@ export default new Router({
         path: '/list',
         name: 'list',
         component: ContactList
+    },
+    {
+        path: '/list/:id',
+        name: 'list',
+        component: ContactList
+    },
+    {
+        path: '/list2',
+        name: 'list2',
+        component: ContactList2
     }
   ]
 })
