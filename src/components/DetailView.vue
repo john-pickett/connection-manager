@@ -28,7 +28,7 @@
             </v-layout>
         </v-card-text>
         <v-card-actions>
-            <v-btn color="warning" id="edit-btn" @click="editContact">Edit Contact</v-btn>
+            <v-btn v-if="focusContact" color="warning" id="edit-btn" @click="editContact">Edit Contact</v-btn>
         </v-card-actions>
     </v-card>
 </template>

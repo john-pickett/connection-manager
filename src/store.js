@@ -11,10 +11,12 @@ export default new Vuex.Store({
         contacts: [],
         contactsCopy: [],
         currentContact: '',
-        newContact: {},
+        newContact: {}, // for adding a new contact
         contactToUpdate: {},
         viewContact: true,
-        editContact: false
+        editContact: false,
+        newContactModal: false,
+        newContactSaved: false
     },
     mutations: {
         CREATE_NEW_CONTACT(state, contact) {
@@ -39,12 +41,13 @@ export default new Vuex.Store({
                 this.state.contactsCopy = JSON.parse(JSON.stringify(this.state.contacts));
             })
         },
-        SAVE_NEW_CONTACT({commit}) {
-            axios.post(process.env.VUE_APP_API_URL + '/contact', this.state.newContact).then((res) => {
-                // console.log('contact saved')
-                this.state.newContact = res.data
-                commit('ADD_NEW_CONTACT')
-                
+        SAVE_NEW_CONTACT({dispatch}) {
+            axios.post(process.env.VUE_APP_API_URL + '/contact', this.state.newContact).then(() => {
+
+                // this.state.newContact = res.data; // changing this to reload contact data from API
+                // commit('ADD_NEW_CONTACT') // same here
+                dispatch('LOAD_CONTACT_DATA');
+                this.state.newContactSaved = true;
             })
         },
         UPDATE_CONTACT({dispatch}, contact) {
@@ -53,7 +56,7 @@ export default new Vuex.Store({
             // commit('EDIT_CONTACT', contact);
             axios.put(process.env.VUE_APP_API_URL + '/contact/' + id, contact).then(() => {
                 // console.log(res.data);
-                dispatch('LOAD_CONTACT_DATA')
+                dispatch('LOAD_CONTACT_DATA');
             })
         }
     }

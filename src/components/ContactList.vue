@@ -1,7 +1,15 @@
 <template>
     <v-layout row>
         <v-flex xs3>
+            <!-- ADD NEW CONTACT BUTTON -->
+            <v-btn fixed fab bottom left color="green" @click="addNewContactModal">
+                <v-icon color="white">add</v-icon>
+            </v-btn>
+            <new-contact-modal></new-contact-modal>
+            <!-- SEARCH FILTER BOX -->
             <v-text-field label="Search" box v-model="nameFilter"></v-text-field>
+
+            <!-- CONTACT LIST STARTS HERE -->
             <v-flex xs12 v-for="contact of filteredContacts" :key="contact._id" py-2>
                 <v-card :id=contact._id>
                     <v-card-title class="headline" @click="selectFocusContact($event)">
@@ -18,18 +26,24 @@
             <detail-view v-if="viewContact"></detail-view>
             <edit-contact v-if="editContact"></edit-contact>
         </v-flex>
+        <v-snackbar v-model="newContactSaved" :bottom=true>
+            Contact saved!
+            <v-btn color="pink" flat @click="closeSnackbar">Close</v-btn>
+        </v-snackbar>
     </v-layout>
 </template>
 
 <script>
 import DetailView from './DetailView';
 import EditContact from './EditContact';
+import NewContactModal from './NewContactModal';
 /* eslint-disable */
 
 export default {
     components: {
         DetailView,
-        EditContact
+        EditContact,
+        NewContactModal
     },
     data: () => ({
         nameFilter: ''
@@ -48,6 +62,14 @@ export default {
                 return 1;
             }
             return 0;
+        },
+        addNewContactModal () {
+            console.log('clicking...');
+            this.newContactModal = true;
+            this.$store.state.newContactModal = true;
+        },
+        closeSnackbar () {
+            this.$store.state.newContactSaved = false;
         }
     },
     computed: {
@@ -63,6 +85,9 @@ export default {
         },
         editContact () {
             return this.$store.state.editContact;
+        },
+        newContactSaved () {
+            return this.$store.state.newContactSaved;
         }
     }
 }

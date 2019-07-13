@@ -98,8 +98,8 @@ export default {
         },
         cancel() {
             /*
-            // if the user begins edits and then cancels, upon return to the edit screen those unsaved edits
-            // appear again. Solve this if someone mentions it as a problem
+                if the user begins edits and then cancels, upon return to the edit screen those unsaved edits
+                appear again. Solve this if someone mentions it as a problem
             */
             this.$store.state.viewContact = true;
             this.$store.state.editContact = false;

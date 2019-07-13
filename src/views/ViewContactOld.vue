@@ -78,7 +78,7 @@
         <h2>View Contact</h2>
         <v-card>
             <v-card-text>
-                <!-- Name: {{currentContact.firstName}} -->
+                 Name: {{currentContact.firstName}} -->
                 <v-container>
                     <v-layout row wrap>
                         <v-flex xs12 sm6 md6 class="pa-1">
