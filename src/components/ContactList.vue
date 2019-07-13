@@ -10,6 +10,9 @@
             <v-text-field label="Search" box v-model="nameFilter"></v-text-field>
 
             <!-- CONTACT LIST STARTS HERE -->
+            <div v-if="!filteredContacts.length" class="text-xs-center">
+                <v-progress-circular indeterminate color="primary"></v-progress-circular>
+            </div>
             <v-flex xs12 v-for="contact of filteredContacts" :key="contact._id" py-2>
                 <v-card :id=contact._id>
                     <v-card-title class="headline" @click="selectFocusContact($event)">

@@ -85,7 +85,7 @@ export default {
     }),
     methods: {
         updateContact() {
-            const id = this.$route.params.id;
+            // const id = this.$route.params.id;
             // console.log('updating ' + id);
             // console.log(JSON.stringify(this.contact));
             
