@@ -10,11 +10,9 @@
     <v-content>
         <div class="nav-links">
             <router-link to="/">Dashboard</router-link> |
-            <router-link to="/contacts">Table</router-link> |
-            <router-link to="/new">Add</router-link> | 
-            <router-link to="/edit">Edit</router-link>
+            <router-link to="/list">Contacts List</router-link>
         </div>
-        <v-container>
+        <v-container fluid>
             <router-view />
         </v-container>  
         <v-footer height="50px" color="">
